@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="script.js"></script>
     <title>TODO List</title>
 </head>
@@ -11,16 +12,21 @@
     <div class="page">
         <div class="header">
             <h3 id="header-note">Task 2</h3>
+            <h3 id="added-note">Item added to the list</h3>
+            <h3 id="error-note">Please Enter Valid Value</h3>
+            <h3 id="completed-note">Item completed</h3>
+
+
         </div>
         <div class="input-section">
             <input placeholder="Name..." id="input-bar">
-            <button id="add-item">Add item</button>
+            <button id="add-item" onclick="addItem(document.getElementById('input-bar').value)">Add item</button>
         </div>
-        <div class="tasks-container">
-
+        <div id="tasks-container">
+            
         </div>
         <div class="footer">
-            <button id="clear-items">Clear items</button>
+            <button id="clear-items" onclick="clearItem()">Clear items</button>
         </div>
     </div>
 </body>
