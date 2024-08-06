@@ -151,3 +151,83 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.alert-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-item{
+    width: 130px;
+    background-color: white;
+    color: #2ec264dc;
+    border: 1px solid #6ac98d;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 5px;
+    box-shadow: 0px 0px 4px rgba(109, 106, 106, 0.212);
+}
+
+#edit-item:hover{
+    background-color: #2ec264dc;
+    color: white;
+    transition: 0.4s;
+ 
+}
+
+.input-edit-section{
+    display :flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 50px 50px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.input-row{
+    display: flex;
+    flex-direction: row;
+    gap: 90px; 
+}
+
+#input-edit-bar{
+    width: 600px;
+    height: 40px;
+    border: 1px solid #6ac98d;
+    border-radius: 5px;
+    padding: 0 9px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#input-edit-bar:focus {
+    border-color: rgb(88, 88, 214);
+    outline: none;
+}
+
+.ok-button {
+    width: 130px;
+    background-color: white;
+    color: #2ec264dc;
+    border: 1px solid #6ac98d;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 5px;
+    box-shadow: 0px 0px 4px rgba(109, 106, 106, 0.212);
+}
+.ok-button:hover{
+    background-color: #2ec264dc;
+    color: white;
+    transition: 0.4s;
+ 
+}

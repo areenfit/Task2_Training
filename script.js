@@ -70,7 +70,7 @@ function updateItems() {
                                     </div>
                                     <div class="icons">
                                         <i id="check-icon" class="far fa-check-circle text-success" onclick="completeItem(${index})"></i>   
-                                        <i id="edit-icon" class="far fa-edit text-secondary" onclick="editItem(${index})"></i>   
+                                        <i id="edit-icon" class="far fa-edit text-secondary" onclick="showAlert(${index})"></i>   
                                         <i id="delete-icon" class="far fa-times-circle item-icon text-danger" onclick="deleteItem(${index})"></i>
                                     </div>
                                 </div>`;
@@ -91,17 +91,32 @@ function deleteItem(index) {
     saveTasks();  
     updateItems();
 }
+let edit_index=0;
 
-function editItem(index) {
-    alert("Edit");
-    document.getElementById("input-bar").value = array_tasks[index].taskName;
-    const div = document.getElementById('tasks-container').querySelector(`div[data-id="${index}"]`);
+function editItem(newName) {
+    alert("Edit the item");
+    document.getElementById('alertBackground').style.display = 'none';
+
+    array_tasks[edit_index].taskName = newName;
+    
+    const div = document.querySelector(`#tasks-container div[data-id="${edit_index}"]`);
+
     if (div) {
-        div.remove(); 
-        array_tasks.splice(index, 1);
-        saveTasks(); 
+        const numNameDiv = div.querySelector('.num-name');
+        if (numNameDiv) {
+            numNameDiv.innerHTML = `<span class="counter">${edit_index}</span>${newName}`;
+        } else {
+            console.log(`Element with data-id="${edit_index}" does not have the class "num-name".`);
+        }
+    } else {
+        console.log(`Element with data-id="${edit_index}" not found.`);
     }
+
+    saveTasks(); 
+    document.getElementById("input-edit-bar").value='';
+
 }
+
 
 function completeItem(index) {
     const div = document.querySelector(`div[data-id="${index}"]`);
@@ -135,3 +150,12 @@ function completeItem(index) {
 document.addEventListener('DOMContentLoaded', () => {
     loadTasks();  
 });
+
+function showAlert(index) {
+    document.getElementById('alertBackground').style.display = 'flex';
+    edit_index=index;
+}
+
+function hideAlert() {
+    document.getElementById('alertBackground').style.display = 'none';
+}
